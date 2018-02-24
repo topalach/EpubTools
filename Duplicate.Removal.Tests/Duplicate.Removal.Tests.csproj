@@ -13,4 +13,17 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Duplicate.Removal\Duplicate.Removal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Input\chlopi.epub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Input\test_ebook.epub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

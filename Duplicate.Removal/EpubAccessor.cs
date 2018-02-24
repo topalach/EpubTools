@@ -57,7 +57,7 @@ namespace Duplicate.Removal
                 File.Delete(outputPath);
             }
 
-            ZipFile.CreateFromDirectory(inputFolder, outputPath, CompressionLevel.NoCompression, false);
+            ZipFile.CreateFromDirectory(inputFolder, outputPath, CompressionLevel.Optimal, false);
         }
     }
 }
