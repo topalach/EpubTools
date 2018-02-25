@@ -319,10 +319,6 @@ ASALocalRun/
 # MSBuild Binary and Structured Log
 *.binlog
 
-# ebook files
-*.epub
-*.mobi
-*.azw3
-
 # output files
 Output/
+Runner/Input
