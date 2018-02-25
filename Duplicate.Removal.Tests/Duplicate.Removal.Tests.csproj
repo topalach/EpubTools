@@ -18,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Input\AnnotationTool.epub">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Input\chlopi.epub">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

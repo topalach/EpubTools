@@ -1,37 +1,22 @@
-using System;
 using System.IO;
+using Duplicate.Removal.Tests.Base;
 using Xunit;
 
 namespace Duplicate.Removal.Tests
 {
-    public class EpubAccessorTests : IDisposable
+    public class EpubAccessorTests : EpubExtractionTests
     {
         private const string InputFilePath = ".\\Input\\test_ebook.epub";
-        private const string OutputFolder = ".\\Output";
 
-        public EpubAccessorTests()
+        public EpubAccessorTests(EpubExtractionFixture fixture) : base(fixture)
         {
-            ClearOutputDirectory();
-        }
-
-        public void Dispose()
-        {
-            ClearOutputDirectory();
-        }
-
-        private void ClearOutputDirectory()
-        {
-            if (Directory.Exists(OutputFolder))
-            {
-                Directory.Delete(OutputFolder, true);
-            }
         }
 
         [Fact]
         public void ExtractsEpub()
         {
             var accessor = new EpubAccessor(InputFilePath);
-            var extractedEpub = accessor.ExtractToFolder(OutputFolder);
+            var extractedEpub = accessor.ExtractToFolder(fixture.OutputFolder);
 
             const string ExpectedExtractedPath = ".\\Output\\test_ebook";
 
@@ -43,9 +28,9 @@ namespace Duplicate.Removal.Tests
         public void CompressesEpub()
         {
             var accessor = new EpubAccessor(InputFilePath);
-            var extractedEpub = accessor.ExtractToFolder(OutputFolder);
+            var extractedEpub = accessor.ExtractToFolder(fixture.OutputFolder);
 
-            accessor.Compress(extractedEpub, OutputFolder, true);
+            accessor.Compress(extractedEpub, fixture.OutputFolder, true);
 
             const string ExpectedCompressedPath = ".\\Output\\test_ebook.epub";
             Assert.True(File.Exists(ExpectedCompressedPath));
